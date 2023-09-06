@@ -2,7 +2,7 @@ import "./app.scss";
 
 import React from "react";
 import { AppContextProvider } from "./AppContext";
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { routes } from "./routes";
 
 const router = createBrowserRouter(routes);
