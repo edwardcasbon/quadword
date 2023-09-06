@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { IMenuButton } from "../../types/footer/menu";
 
-const items = [
+const items: IMenuButton[] = [
     {
         label: "Play",
         icon: "play",
@@ -31,6 +32,6 @@ export default function Menu() {
     );
 }
 
-function MenuButton({ item }: { item: any }) {
+function MenuButton({ item }: { item: IMenuButton }) {
     return <Link to={item.route}>{item.label}</Link>;
 }
