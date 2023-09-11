@@ -1,6 +1,7 @@
 import React from "react";
 import { RouteObject } from "react-router-dom";
 import Layout from "./components/Layout";
+import RootView from "./views/Root";
 
 export const routes: RouteObject[] = [
     {
@@ -9,7 +10,7 @@ export const routes: RouteObject[] = [
         children: [
             {
                 path: "/",
-                element: <p>Root</p>,
+                element: <RootView />,
             },
             {
                 path: "start",
