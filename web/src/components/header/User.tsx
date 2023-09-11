@@ -9,5 +9,9 @@ export default function User() {
         return null;
     }
 
-    return <Link to="/user">{user.name}</Link>;
+    return (
+        <Link to="/user">
+            <span className="material-icons">account_circle</span>
+        </Link>
+    );
 }
