@@ -2,6 +2,7 @@ import React from "react";
 import { RouteObject } from "react-router-dom";
 import Layout from "./components/Layout";
 import RootView from "./views/Root";
+import StartView from "./views/Start";
 
 export const routes: RouteObject[] = [
     {
@@ -14,7 +15,7 @@ export const routes: RouteObject[] = [
             },
             {
                 path: "start",
-                element: <p>Start</p>,
+                element: <StartView />,
             },
             {
                 path: "game",
