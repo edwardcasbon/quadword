@@ -3,6 +3,7 @@ import { RouteObject } from "react-router-dom";
 import Layout from "./components/Layout";
 import RootView from "./views/Root";
 import StartView from "./views/Start";
+import UserView from "./views/User";
 
 export const routes: RouteObject[] = [
     {
@@ -23,7 +24,7 @@ export const routes: RouteObject[] = [
             },
             {
                 path: "user",
-                element: <p>User</p>,
+                element: <UserView />,
             },
             {
                 path: "leaderboard",
