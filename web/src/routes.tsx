@@ -5,6 +5,7 @@ import RootView from "./views/Root";
 import StartView from "./views/Start";
 import UserView from "./views/User";
 import LeaderboardView from "./views/Leaderboard";
+import AboutView from "./views/About";
 
 export const routes: RouteObject[] = [
     {
@@ -32,12 +33,8 @@ export const routes: RouteObject[] = [
                 element: <LeaderboardView />,
             },
             {
-                path: "more",
-                element: <p>More</p>,
-            },
-            {
                 path: "about",
-                element: <p>About</p>,
+                element: <AboutView />,
             },
         ],
     },
