@@ -14,9 +14,9 @@ const items: IMenuButton[] = [
         route: "/leaderboard",
     },
     {
-        label: "More",
-        icon: "more",
-        route: "/more",
+        label: "About",
+        icon: "about",
+        route: "/about",
     },
 ];
 
