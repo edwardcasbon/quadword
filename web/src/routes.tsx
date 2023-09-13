@@ -4,6 +4,7 @@ import Layout from "./components/Layout";
 import RootView from "./views/Root";
 import StartView from "./views/Start";
 import UserView from "./views/User";
+import LeaderboardView from "./views/Leaderboard";
 
 export const routes: RouteObject[] = [
     {
@@ -28,7 +29,7 @@ export const routes: RouteObject[] = [
             },
             {
                 path: "leaderboard",
-                element: <p>Leaderboard</p>,
+                element: <LeaderboardView />,
             },
             {
                 path: "more",
