@@ -9,9 +9,9 @@ const pool = mysql.createPool({
 
 const poolPromise = pool.promise();
 
-const query = async (query = "") => {
+const query = async (query = "", args = []) => {
     try {
-        const [records] = await poolPromise.query(query);
+        const [records] = await poolPromise.query(query, args);
         return records;
     } catch (error) {
         console.error(`Couldn't do query: ${error}`);
