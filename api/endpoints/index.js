@@ -1,6 +1,7 @@
 const word = require("./word");
 const leaderboard = require("./leaderboard");
 const user = require("./user");
+const score = require("./score");
 
 const endpoints = [
     {
@@ -12,6 +13,9 @@ const endpoints = [
     }, {
         path: "/user",
         router: user,
+    }, {
+        path: "/score",
+        router: score,
     },
 ];
 
