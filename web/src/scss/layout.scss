@@ -22,3 +22,13 @@ header {
     align-items: center;
     justify-content: space-between;
 }
+
+footer {
+    ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}

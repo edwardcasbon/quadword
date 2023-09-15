@@ -1,0 +1,23 @@
+.game {
+    &__stats {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__word, &__guess {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__keyboard {
+        &__row {
+            display: flex;
+            justify-content: center;
+
+            button {
+                margin: 1em;
+            }
+        }
+    }
+}

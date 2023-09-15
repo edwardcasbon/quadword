@@ -6,6 +6,7 @@ import StartView from "./views/Start";
 import UserView from "./views/User";
 import LeaderboardView from "./views/Leaderboard";
 import AboutView from "./views/About";
+import GameView from "./views/Game";
 
 export const routes: RouteObject[] = [
     {
@@ -22,7 +23,7 @@ export const routes: RouteObject[] = [
             },
             {
                 path: "game",
-                element: <p>Game</p>,
+                element: <GameView />,
             },
             {
                 path: "user",
