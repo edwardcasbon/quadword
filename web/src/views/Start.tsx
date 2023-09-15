@@ -1,15 +1,27 @@
 import React, { useRef } from "react";
 import { useAppContext } from "../AppContext";
 import { useNavigate } from "react-router-dom";
+import { fetchApi } from "../fetches/api";
 
 export default function StartView() {
     const { setUser } = useAppContext();
     const navigate = useNavigate();
     const nameRef = useRef<HTMLInputElement>(null);
 
-    function handleSubmit(e: any) {
+    async function handleSubmit(e: any) {
         e.preventDefault();
-        setUser({ name: nameRef.current.value });
+        await fetchApi(
+            "/user",
+            (user) => {
+                if (user?.id) {
+                    setUser(user);
+                }
+            },
+            "POST",
+            {
+                name: nameRef.current.value,
+            }
+        );
         navigate("/");
     }
 
