@@ -8,8 +8,10 @@ const keys = [
 
 export default function Keyboard({
     onUpdate,
+    enabled,
 }: {
     onUpdate: (key: string) => void;
+    enabled: boolean;
 }) {
     return (
         <div className="game__keyboard">
@@ -18,6 +20,7 @@ export default function Keyboard({
                     {row.map((key) => (
                         <button
                             key={key}
+                            disabled={!enabled}
                             onClick={() => {
                                 onUpdate(key);
                             }}
