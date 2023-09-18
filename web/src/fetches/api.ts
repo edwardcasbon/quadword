@@ -4,7 +4,7 @@ const apiUrl = "http://localhost:3000";
 
 export const fetchApi = (
     uri: string,
-    callback: (json: any) => void,
+    callback?: (json: any) => void,
     method: string = "GET",
     data: any = null,
     controller?: AbortController
@@ -35,6 +35,7 @@ export const fetchApi = (
             if (typeof callback === "function") {
                 callback.call(this, json);
             }
+            return json;
         })
         .catch((err) => console.error(err));
 };
