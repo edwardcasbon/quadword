@@ -7,6 +7,7 @@ import UserView from "./views/User";
 import LeaderboardView from "./views/Leaderboard";
 import AboutView from "./views/About";
 import GameView from "./views/Game";
+import GameOverView from "./views/GameOver";
 
 export const routes: RouteObject[] = [
     {
@@ -36,6 +37,10 @@ export const routes: RouteObject[] = [
             {
                 path: "about",
                 element: <AboutView />,
+            },
+            {
+                path: "game-over",
+                element: <GameOverView />,
             },
         ],
     },
