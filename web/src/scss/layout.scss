@@ -1,3 +1,17 @@
+html, body {
+    background: $background-color;
+    color: $text-color;
+}
+
+a, a:link, a:visited, a:focus, a:active {
+    color: $text-color;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+    color: $heading-color;
+}
+
 #root {
     display: flex;
     flex-direction: column;
@@ -13,22 +27,72 @@
 header,
 .content,
 footer {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin: 0;
+    padding: 0;
 }
 
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: $alternative-background-color;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: $border-color;
+    padding: 1rem;
+
+    h1 {
+        font-size: 20px;
+        margin: 4px 0;
+    }
+
+    .material-symbols-outlined {
+        color: $heading-color;
+        font-size: 28px;
+    }
 }
 
 footer {
+    background: $alternative-background-color;
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-top-color: $border-color;
+    
     ul {
         padding: 0;
+        margin: 0;
         list-style: none;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+
+        li {
+            display: flex;
+            flex-grow: 1;
+            margin-bottom: 0;
+        }
+    }
+
+    a, a:link, a:visited, a:focus, a:active {
+        color: $heading-color;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .material-symbols-outlined {
+        margin-bottom: 0.25rem;
+        font-variation-settings: 'FILL' 1,
+    }
+}
+
+.content {
+    padding: 1rem;
+
+    p, ul, li {
+        font-size: 16px;
+        line-height: 24px;
     }
 }
