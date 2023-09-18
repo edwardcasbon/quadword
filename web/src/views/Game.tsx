@@ -5,12 +5,14 @@ import Word from "../components/game/Word";
 import Guess from "../components/game/Guess";
 import Keyboard from "../components/game/Keyboard";
 import { useApi } from "../hooks/useApi";
+import { getPointsForGuess } from "../utilities/game";
 
 export default function GameView() {
     const [points, setPoints] = useState(0);
     const [lives, setLives] = useState(4);
     const [word, setWord] = useState("quad");
     const [guess, setGuess] = useState([]);
+    const [isKeyboardEnabled, setIsKeyboardEnabled] = useState(true);
 
     useApi(
         "/word",
@@ -33,8 +35,30 @@ export default function GameView() {
     }
 
     useEffect(() => {
-        console.log(`Guess updated to ${guess.join("")}`);
+        if (guess.length === 4) {
+            (async () => {
+                if (guess.join("") !== word) {
+                    setIsKeyboardEnabled(false);
+                    const score = await getPointsForGuess(word, guess.join(""));
+                    if (score === 0) {
+                        setLives(lives - 1);
+                    } else if (score > 0) {
+                        setPoints(points + score);
+                        setWord(guess.join(""));
+                    }
+                }
+                setGuess([]);
+                setIsKeyboardEnabled(true);
+            })();
+        }
     }, [guess]);
+
+    useEffect(() => {
+        if (lives === 0) {
+            console.log("Game over");
+            // submit score and redirect to game over page and ask to enter email if don't have email address
+        }
+    }, [lives]);
 
     return (
         <section className="game">
@@ -44,7 +68,7 @@ export default function GameView() {
             </div>
             <Word word={word} />
             <Guess guess={guess.join("")} />
-            <Keyboard onUpdate={onKeyboardUpdate} />
+            <Keyboard enabled={isKeyboardEnabled} onUpdate={onKeyboardUpdate} />
         </section>
     );
 }
