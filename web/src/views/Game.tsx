@@ -6,13 +6,18 @@ import Guess from "../components/game/Guess";
 import Keyboard from "../components/game/Keyboard";
 import { useApi } from "../hooks/useApi";
 import { getPointsForGuess } from "../utilities/game";
+import { fetchApi } from "../fetches/api";
+import { useAppContext } from "../AppContext";
+import { useNavigate } from "react-router-dom";
 
 export default function GameView() {
+    const { user } = useAppContext();
     const [points, setPoints] = useState(0);
     const [lives, setLives] = useState(4);
     const [word, setWord] = useState("quad");
     const [guess, setGuess] = useState([]);
     const [isKeyboardEnabled, setIsKeyboardEnabled] = useState(true);
+    const navigate = useNavigate();
 
     useApi(
         "/word",
@@ -56,7 +61,13 @@ export default function GameView() {
     useEffect(() => {
         if (lives === 0) {
             console.log("Game over");
-            // submit score and redirect to game over page and ask to enter email if don't have email address
+            (async () => {
+                await fetchApi("/score", () => {}, "POST", {
+                    user_id: user?.id,
+                    score: points,
+                });
+                navigate(`/game-over?points=${points}`);
+            })();
         }
     }, [lives]);
 
