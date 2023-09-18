@@ -11,7 +11,7 @@ export default function User() {
 
     return (
         <Link to="/user">
-            <span className="material-icons">account_circle</span>
+            <span className="material-symbols-outlined">account_circle</span>
         </Link>
     );
 }

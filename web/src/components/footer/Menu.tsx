@@ -5,17 +5,17 @@ import { IMenuButton } from "../../types/footer/menu";
 const items: IMenuButton[] = [
     {
         label: "Play",
-        icon: "play",
+        icon: "sports_esports",
         route: "/",
     },
     {
         label: "Leaderboard",
-        icon: "leaderboard",
+        icon: "social_leaderboard",
         route: "/leaderboard",
     },
     {
         label: "About",
-        icon: "about",
+        icon: "info",
         route: "/about",
     },
 ];
@@ -33,5 +33,10 @@ export default function Menu() {
 }
 
 function MenuButton({ item }: { item: IMenuButton }) {
-    return <Link to={item.route}>{item.label}</Link>;
+    return (
+        <Link to={item.route}>
+            <span className="material-symbols-outlined">{item.icon}</span>
+            {item.label}
+        </Link>
+    );
 }
