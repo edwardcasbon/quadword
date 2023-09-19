@@ -24,6 +24,7 @@ export default function Keyboard({
                             onClick={() => {
                                 onUpdate(key);
                             }}
+                            accessKey={key}
                         >
                             {key === "backspace" ? (
                                 <span className="material-symbols-outlined">
