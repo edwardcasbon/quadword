@@ -54,9 +54,6 @@ header {
 
 footer {
     background: $alternative-background-color;
-    border-top-style: solid;
-    border-top-width: 2px;
-    border-top-color: $border-color;
     
     ul {
         padding: 0;
@@ -68,6 +65,7 @@ footer {
 
         li {
             display: flex;
+            flex-basis: 0;
             flex-grow: 1;
             margin-bottom: 0;
         }
@@ -80,11 +78,18 @@ footer {
         flex-grow: 1;
         align-items: center;
         padding: 1rem 0;
+        border-top-style: solid;
+        border-top-width: 2px;
+        border-top-color: $border-color;
+
+        &.active {
+            color: $highlight-color;
+            border-color: $highlight-color;
+        }
     }
 
     .material-symbols-outlined {
         margin-bottom: 0.25rem;
-        font-variation-settings: 'FILL' 1,
     }
 }
 
