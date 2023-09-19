@@ -51,6 +51,8 @@
     &__guess {
         display: flex;
         flex-direction: row;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
 
         span {
             display: flex;
@@ -70,16 +72,34 @@
     &__keyboard {
         display: flex;
         flex-direction: column;
-        flex-grow: 1;
         justify-content: end;
+        padding: 1rem 0;
+        border-top-style: solid;
+        border-top-width: 2px;
+        border-top-color: $border-color;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
 
         &__row {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
+            margin: 0.5rem 0;
 
             button {
                 text-transform: uppercase;
-                font-size: 16px;
+                font-size: 20px;
+                background-color: $white;
+                border: none;
+                border-radius: 6px;
+                width: 30px;
+                height: 40px;
+                margin: 0 3px;
+                box-shadow: 0 0 10px $shadow-color;
+
+                .material-symbols-outlined {
+                    display: block;
+                    margin-left: -2px;
+                }
             }
         }
     }

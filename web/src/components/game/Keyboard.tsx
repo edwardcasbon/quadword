@@ -25,7 +25,13 @@ export default function Keyboard({
                                 onUpdate(key);
                             }}
                         >
-                            {key}
+                            {key === "backspace" ? (
+                                <span className="material-symbols-outlined">
+                                    backspace
+                                </span>
+                            ) : (
+                                key
+                            )}
                         </button>
                     ))}
                 </div>
