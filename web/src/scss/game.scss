@@ -1,4 +1,8 @@
 .game {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
     &__stats {
         display: flex;
         flex-direction: row;
@@ -27,16 +31,54 @@
 
     &__word, &__guess {
         display: flex;
+        flex-grow: 1;
         justify-content: center;
     }
 
+    &__word {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        align-items: end;
+
+        p {
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin-bottom: 0;
+        }
+    }
+
+    &__guess {
+        display: flex;
+        flex-direction: row;
+
+        span {
+            display: flex;
+            background-color: $white;
+            border-radius: 10px;
+            font-size: 36px;
+            width: 50px;
+            height: 50px;
+            justify-content: center;
+            align-items: center;
+            margin: 0 10px;
+            text-transform: uppercase;
+            box-shadow: 0 0 10px $shadow-color;
+        }
+    }
+
     &__keyboard {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: end;
+
         &__row {
             display: flex;
             justify-content: center;
 
             button {
-                margin: 1em;
+
             }
         }
     }
