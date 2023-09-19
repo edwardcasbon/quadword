@@ -50,6 +50,10 @@ header {
         color: $heading-color;
         font-size: 28px;
     }
+
+    .active .material-symbols-outlined {
+        color: $highlight-color;
+    }
 }
 
 footer {
