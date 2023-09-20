@@ -17,6 +17,8 @@ export default function GameView() {
     const [word, setWord] = useState("quad");
     const [guess, setGuess] = useState([]);
     const [isKeyboardEnabled, setIsKeyboardEnabled] = useState(true);
+    const [guesses, setGuesses] = useState([]);
+
     const navigate = useNavigate();
 
     useApi(
@@ -24,6 +26,7 @@ export default function GameView() {
         (word) => {
             if (word.word) {
                 setWord(word.word);
+                setGuesses([word.word]);
             }
         },
         []
@@ -42,7 +45,10 @@ export default function GameView() {
     useEffect(() => {
         if (guess.length === 4) {
             (async () => {
-                if (guess.join("") !== word) {
+                if (
+                    guess.join("") !== word &&
+                    guesses.indexOf(guess.join("")) === -1
+                ) {
                     setIsKeyboardEnabled(false);
                     const score = await getPointsForGuess(word, guess.join(""));
                     if (score === 0) {
@@ -50,6 +56,7 @@ export default function GameView() {
                     } else if (score > 0) {
                         setPoints(points + score);
                         setWord(guess.join(""));
+                        setGuesses([...guesses, guess.join("")]);
                     }
                 }
                 setGuess([]);
