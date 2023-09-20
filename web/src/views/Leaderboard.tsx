@@ -14,13 +14,13 @@ export default function LeaderboardView() {
     );
 
     return (
-        <>
+        <section className="leaderboard">
             <h1>Leaderboard</h1>
             {leaderboard === null ? (
                 <p>Loading...</p>
             ) : (
                 <Leaderboard leaders={leaderboard} />
             )}
-        </>
+        </section>
     );
 }

@@ -26,7 +26,7 @@ export default function StartView() {
     }
 
     return (
-        <>
+        <section className="start">
             <h1>Quadword</h1>
 
             <form onSubmit={handleSubmit}>
@@ -40,6 +40,6 @@ export default function StartView() {
                 />
                 <input type="submit" value="Play" />
             </form>
-        </>
+        </section>
     );
 }

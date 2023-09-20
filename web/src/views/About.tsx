@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function AboutView() {
     return (
-        <>
+        <section className="about">
             <h1>About Quadword</h1>
             <p>
                 Quadword is a fun little 4-letter word game, designed to score
@@ -13,7 +13,7 @@ export default function AboutView() {
             <ul>
                 <li>Developer: Edward Casbon</li>
                 <li>
-                    GitHub:
+                    GitHub:{" "}
                     <Link
                         to="https://github.com/edwardcasbon/quadword/"
                         target="_blank"
@@ -24,6 +24,6 @@ export default function AboutView() {
                 <li>Fonts: Google fonts</li>
                 <li>Icons: Google fonts</li>
             </ul>
-        </>
+        </section>
     );
 }

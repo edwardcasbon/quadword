@@ -8,12 +8,14 @@ export default function GameOverView() {
     const { user } = useAppContext();
 
     return (
-        <>
+        <section className="game-over">
             <h1>Game over</h1>
             {searchParams.get("points") && (
-                <p>You scored {searchParams.get("points")} points</p>
+                <p className="game-over__score">
+                    You scored {searchParams.get("points")} points
+                </p>
             )}
             {!user.email && <UpdateEmail />}
-        </>
+        </section>
     );
 }

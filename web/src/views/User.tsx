@@ -17,16 +17,16 @@ export default function UserView() {
     }
 
     return (
-        <>
-            <p>
-                Playing as <strong>{user?.name}</strong>
-            </p>
+        <section className="user">
+            <h1>
+                You're playing as "<strong>{user?.name}</strong>"
+            </h1>
             <p>
                 Not you?{" "}
                 <Link to={"/"} onClick={signOut}>
                     Sign out and start again
                 </Link>
             </p>
-        </>
+        </section>
     );
 }

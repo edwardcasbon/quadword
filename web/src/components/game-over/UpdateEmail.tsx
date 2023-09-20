@@ -22,6 +22,11 @@ export default function UpdateEmail() {
 
     return isFormVisible ? (
         <form onSubmit={handleFormSubmit}>
+            <p>
+                We don't currently have your email address on record. If you'd
+                like to give us your email address so that we can contact you,
+                please enter it below.
+            </p>
             <input
                 type="email"
                 ref={emailRef}
