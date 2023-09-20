@@ -1,11 +1,18 @@
-import React from "react";
-import { useSearchParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { useAppContext } from "../AppContext";
 import UpdateEmail from "../components/game-over/UpdateEmail";
 
 export default function GameOverView() {
     const [searchParams] = useSearchParams();
     const { user } = useAppContext();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/");
+        }
+    }, [user]);
 
     return (
         <section className="game-over">
@@ -15,7 +22,10 @@ export default function GameOverView() {
                     You scored {searchParams.get("points")} points
                 </p>
             )}
-            {!user.email && <UpdateEmail />}
+            <Link to="/" className="button">
+                Play again
+            </Link>
+            {!user?.email && <UpdateEmail />}
         </section>
     );
 }
