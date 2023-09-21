@@ -21,8 +21,28 @@
         }
     }
 
-    &__points span {
-        margin-right: 6px;
+    &__points {
+        @keyframes pointsGrow {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.25);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        span {
+            margin-right: 6px;
+        }
+
+        &--grow {
+            span {
+                animation: pointsGrow 0.2s 1;
+            }
+        }
     }
 
     &__lives span {
