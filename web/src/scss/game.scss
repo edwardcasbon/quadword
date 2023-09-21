@@ -45,8 +45,28 @@
         }
     }
 
-    &__lives span {
-        margin-left: 6px;
+    &__lives {
+        @keyframes livesShrink {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        span {
+            margin-left: 6px;
+        }
+
+        &--shrink {
+            span {
+                animation: livesShrink 0.2s 1;
+            }
+        }
     }
 
     &__word, &__guess {
