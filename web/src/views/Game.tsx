@@ -18,6 +18,7 @@ export default function GameView() {
     const [guess, setGuess] = useState([]);
     const [isKeyboardEnabled, setIsKeyboardEnabled] = useState(true);
     const [guesses, setGuesses] = useState([]);
+    const [isWobbling, setIsWobbling] = useState(false);
 
     const navigate = useNavigate();
 
@@ -53,11 +54,14 @@ export default function GameView() {
                     const score = await getPointsForGuess(word, guess.join(""));
                     if (score === 0) {
                         setLives(lives - 1);
+                        setIsWobbling(true);
                     } else if (score > 0) {
                         setPoints(points + score);
                         setWord(guess.join(""));
                         setGuesses([...guesses, guess.join("")]);
                     }
+                } else {
+                    setIsWobbling(true);
                 }
                 setGuess([]);
                 setIsKeyboardEnabled(true);
@@ -67,7 +71,6 @@ export default function GameView() {
 
     useEffect(() => {
         if (lives === 0) {
-            console.log("Game over");
             (async () => {
                 await fetchApi("/score", () => {}, "POST", {
                     user_id: user?.id,
@@ -85,7 +88,13 @@ export default function GameView() {
                 <Lives lives={lives} />
             </div>
             <Word word={word} />
-            <Guess guess={guess.join("")} />
+            <Guess
+                guess={guess.join("")}
+                wobbling={isWobbling}
+                onAnimationEnd={() => {
+                    setIsWobbling(false);
+                }}
+            />
             <Keyboard enabled={isKeyboardEnabled} onUpdate={onKeyboardUpdate} />
         </section>
     );
