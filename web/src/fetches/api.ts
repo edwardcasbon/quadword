@@ -1,6 +1,6 @@
 import React from "react";
 
-const apiUrl = "http://localhost:4000/api";
+const apiUrl = "/api";
 
 export const fetchApi = (
     uri: string,
