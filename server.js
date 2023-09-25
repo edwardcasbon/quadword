@@ -11,7 +11,7 @@ app.use('/api', express.json());
 app.use('/api', express.urlencoded({extended: true}));
 
 // Authenticate API requests
-app.use('/api', authenticateRequest);
+// app.use('/api', authenticateRequest);
 
 app.use(express.static("web/dist"));
 
