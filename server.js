@@ -11,22 +11,7 @@ app.use('/api', express.json());
 app.use('/api', express.urlencoded({extended: true}));
 
 // Authenticate API requests
-app.use('/api', async (req, res, next) => {
-    if (req.path.match('/auth/')) {
-        // Don't need to authenticate requests to get a token.
-        next();
-    } else {
-        const isAuthenticated = await authenticateRequest(req);
-        if (isAuthenticated) {
-            next();
-        } else {
-            res.status(401).json({
-                code: 123,
-                error: 'Request unauthenticated',
-            });
-        }
-    }
-});
+app.use('/api', authenticateRequest);
 
 app.use(express.static("web/dist"));
 

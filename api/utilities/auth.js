@@ -2,20 +2,32 @@ const db = require("./db");
 const randomstring = require("randomstring");
 const crypto = require("crypto");
 
-const authenticateRequest = async (req, res) => {
-    let authenticated = false;
-    const token = req?.headers?.authorization?.split(' ')[1];
+const authenticateRequest = async (req, res, next) => {
+    if (req.path.match('/auth/')) {
+        // Don't need to authenticate requests to get a token.
+        next();
+    } else {
+        let authenticated = false;
+        const token = req?.headers?.authorization?.split(' ')[1];
 
-    if (token) {
-        // Check if token is valid in the database.
-        const query = `SELECT COUNT(id) AS count FROM api_tokens WHERE token=? LIMIT 1`;
-        const results = await db.query(query, [token]);
-        if (results[0]?.count === 1) {
-            authenticated = true;
+        if (token) {
+            // Check if token is valid in the database.
+            const query = `SELECT COUNT(id) AS count FROM api_tokens WHERE token=? LIMIT 1`;
+            const results = await db.query(query, [token]);
+            if (results[0]?.count === 1) {
+                authenticated = true;
+            }
+        }
+
+        if (authenticated) {
+            next();
+        } else {
+            res.status(401).json({
+                code: 123,
+                error: 'Request unauthenticated',
+            });
         }
     }
-
-    return authenticated;
 };
 
 const getHashForUser = (record) => {
