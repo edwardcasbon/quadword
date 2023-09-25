@@ -22,6 +22,7 @@ export const fetchApi = (
         method,
         headers: {
             "Content-Type": "application/json",
+            Authorization: "Bearer dUses4Z1wIhUcnzuKpTGZJcXg54ihgaF",
         },
     };
 
