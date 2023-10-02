@@ -4,7 +4,7 @@
   "description": "A fun 4-letter word game",
   "main": "web/src/index.tsx",
   "scripts": {
-    "build": "webpack --config ./web/webpack.config.js",
+    "build": "webpack --config ./web/webpack.config.js && cp ./web/src/manifest/* ./web/dist/",
     "server": "node server.js"
   },
   "author": "",
