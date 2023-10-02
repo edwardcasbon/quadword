@@ -1,30 +1,33 @@
 {
-  "name": "quadword",
-  "version": "1.0.0",
-  "description": "A fun 4-letter word game",
-  "main": "web/src/index.tsx",
-  "scripts": {
-    "build": "webpack --config ./web/webpack.config.js && cp ./web/src/manifest/* ./web/dist/"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.15.0"
-  },
-  "devDependencies": {
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "css-loader": "^6.7.3",
-    "html-webpack-plugin": "^5.5.0",
-    "prettier": "^2.8.4",
-    "randomstring": "^1.3.0",
-    "sass": "^1.58.3",
-    "sass-loader": "^13.2.0",
-    "style-loader": "^3.3.1",
-    "ts-loader": "^9.4.2",
-    "typescript": "^4.9.5",
-    "webpack-cli": "^5.0.1"
-  }
+    "name": "quadword",
+    "version": "1.0.0",
+    "description": "A fun 4-letter word game",
+    "main": "web/src/index.tsx",
+    "scripts": {
+        "webpack": "webpack --config ./web/webpack.config.js",
+        "manifest": "cp ./web/src/manifest/* ./web/dist/",
+        "htaccess": "cp ./web/src/.htaccess ./web/dist/.htaccess",
+        "build": "npm run webpack && npm run manifest && npm run htaccess"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.15.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.28",
+        "@types/react-dom": "^18.0.11",
+        "css-loader": "^6.7.3",
+        "html-webpack-plugin": "^5.5.0",
+        "prettier": "^2.8.4",
+        "randomstring": "^1.3.0",
+        "sass": "^1.58.3",
+        "sass-loader": "^13.2.0",
+        "style-loader": "^3.3.1",
+        "ts-loader": "^9.4.2",
+        "typescript": "^4.9.5",
+        "webpack-cli": "^5.0.1"
+    }
 }
