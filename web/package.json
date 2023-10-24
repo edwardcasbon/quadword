@@ -2,11 +2,11 @@
     "name": "quadword",
     "version": "1.0.0",
     "description": "A fun 4-letter word game",
-    "main": "web/src/index.tsx",
+    "main": "src/index.tsx",
     "scripts": {
-        "webpack": "webpack --config ./web/webpack.config.js",
-        "manifest": "cp ./web/src/manifest/* ./web/dist/",
-        "htaccess": "cp ./web/src/.htaccess ./web/dist/.htaccess",
+        "webpack": "webpack --config ./webpack.config.js",
+        "manifest": "cp ./src/manifest/* ./dist/",
+        "htaccess": "cp ./src/.htaccess ./dist/.htaccess",
         "build": "npm run webpack && npm run manifest && npm run htaccess"
     },
     "author": "",
