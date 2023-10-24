@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     mode: "development",
-    entry: "./web/src/index.tsx",
+    entry: "./src/index.tsx",
     module: {
         rules: [
             {
@@ -20,7 +20,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: "Quadword",
-            template: "web/src/index.html",
+            template: "src/index.html",
         }),
     ],
     resolve: {
