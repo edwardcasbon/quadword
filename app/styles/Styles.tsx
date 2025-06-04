@@ -6,6 +6,11 @@ const Styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    innerContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        width: "100%",
+    },
 });
 
 export default Styles;
